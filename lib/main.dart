@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import './goal_manager.dart';
+import './home.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -13,27 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: Scaffold(
-        backgroundColor: Colors.teal,
-        appBar: AppBar(
-          title: const Text('Dashboard'),
-        ),
-        body: GoalManager('Tester'),
-        //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        // floatingActionButton: FloatingActionButton(
-        //   child: const Icon(Icons.add),
-        //   backgroundColor: const Color(0xFF355C7D),
-        //   onPressed: () {
-        //     globals.click = true;
-        //     //callManager();
-        //     //GoalManager('Tester');
-        //     // Goals(['Tester']);
-        //     // setState(() {
-        //     //   _goals.add('New Goal');
-        //     // });
-        //   },
-        //),
-      ),
+      home: const HomeScreen(),
     );
   }
 }

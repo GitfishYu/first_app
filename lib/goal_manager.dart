@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import './goals.dart';
+import './goal_page.dart';
 
 class GoalManager extends StatefulWidget {
   final String startingGoal;
 
-  GoalManager(this.startingGoal, {Key? key}) : super(key: key);
+  const GoalManager(this.startingGoal, {Key? key}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     return _GoalManagerState();
@@ -22,6 +23,46 @@ class _GoalManagerState extends State<GoalManager> {
     super.initState();
   }
 
+  // Future<String?> createAlertDialog(BuildContext context) {
+  //   TextEditingController customController = TextEditingController();
+  //   return showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       return AlertDialog(
+  //         insetPadding: const EdgeInsets.fromLTRB(30.0, 210.0, 30.0, 210.0),
+  //         //title: const Text('Goal:'),
+  //         shape: const RoundedRectangleBorder(
+  //             borderRadius: BorderRadius.all(Radius.circular(10.0))),
+  //         content: Column(
+  //           children: [
+  //             const Text('Goal:'),
+  //             TextField(
+  //               controller: customController,
+  //               decoration: const InputDecoration(hintText: "e.g. Buy a Car"),
+  //             ),
+  //             const Text('Start Date:'),
+  //             TextField(
+  //               controller: customController,
+  //             ),
+  //             const Text('End Date:'),
+  //             TextField(
+  //               controller: customController,
+  //             ),
+  //           ],
+  //         ),
+  //         actions: [
+  //           MaterialButton(
+  //             elevation: 5.0,
+  //             child: const Text('Create'),
+  //             onPressed: () {
+  //               Navigator.of(context).pop(customController.text.toString());
+  //             },
+  //           )
+  //         ],
+  //       );
+  //     },
+  //   );
+  //}
   // void addGoal() {
   //   setState(() {
   //     _goals.add('New Goal');
@@ -30,71 +71,24 @@ class _GoalManagerState extends State<GoalManager> {
 
   @override
   Widget build(BuildContext context) {
-    // print("Manager being updated");
-    // addGoal();
-    // if (globals.click == true) {
-    //   print(globals.click);
-    //   globals.click = false;
-    // }
-
-    // return Goals(_goals);
-
-    // return FloatingActionButton(
-    //   child: const Icon(Icons.add),
-    //   backgroundColor: const Color(0xFF355C7D),
-    //   onPressed: () {
-    //     setState(() {
-    //       _goals.add('New Goal');
-    //       Goals A = Goals(_goals);
-    //       A.printA();
-    //     });
-    //   },
-    // );
-
-    // return Column(
-    //   children: [
-    //     Container(
-    //       margin: EdgeInsets.all(10.0),
-    //       child: FloatingActionButton(
-    //         child: const Icon(
-    //           Icons.add,
-    //           size: 30,
-    //         ),
-    //         backgroundColor: const Color(0xFF355C7D),
-    //         // style: ButtonStyle(
-    //         //     backgroundColor: MaterialStateProperty.all(Color(0xFF355C7D)),
-    //         //     //border: MaterialStateProperty.all(Border())
-    //         //     minimumSize: MaterialStateProperty.all(Size.fromRadius(25)),
-    //         //     shape: MaterialStateProperty.all(
-    //         //         CircleBorder(side: BorderSide(color: Color(0xFF355C7D))))),
-    //         onPressed: () {
-    //           setState(() {
-    //             _goals.add('New Goal');
-    //           });
-    //         },
-    //         //child: Text('Add Goal'),
-    //       ),
-
+    // return Scaffold(
+    //   floatingActionButton: FloatingActionButton(
+    //     child: const Icon(
+    //       Icons.add,
+    //       size: 30,
     //     ),
-    //     Goals(_goals)
-    //   ],
+    //     backgroundColor: const Color(0xFF355C7D),
+    //     onPressed: () {
+    //       Navigator.push(
+    //           context, MaterialPageRoute(builder: (context) => GoalPage()));
+    //       // createAlertDialog(context).then((value) => setState(() {
+    //       //       _goals.add('$value');
+    //       //     }));
+    //     },
+    //   ),
+    //   floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    //   body: Goals(_goals),
     // );
-
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.add,
-          size: 30,
-        ),
-        backgroundColor: const Color(0xFF355C7D),
-        onPressed: () {
-          setState(() {
-            _goals.add('New Goal');
-          });
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      body: Goals(_goals),
-    );
+    return Goals(_goals);
   }
 }
